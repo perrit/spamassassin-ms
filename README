@@ -1,0 +1,5 @@
+Mail::SpamAssassin::BayesStore::PgSQL::Slave
+
+Implements support for PostgreSQL master-slave setup directly into SpamAssassin.
+It's based on the idea, that it doesn't matter if the master bayes database
+is temporarely unavailable.
