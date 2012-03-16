@@ -1,5 +1,11 @@
-Mail::SpamAssassin::BayesStore::PgSQL::Slave
+Mail::SpamAssassin::BayesStore::PgSQL::Slave:
+Custom bayes storage module with support for PostgreSQL master-slave setups.
 
-Implements support for PostgreSQL master-slave setup directly into SpamAssassin.
-It's based on the idea, that it doesn't matter if the master bayes database
-is temporarely unavailable.
+Mail::SpamAssassin::SQLSlaveBasedAddrList:
+Custom auto whitelist module with support for SQL master-slave setups.
+
+
+Both modules are based on the idea that loosing database updates for a short
+period of time is acceptable. In return we gain a loosely coupled system where
+outage of a single node will not disrupt the service, while the data on all
+hosts will remain consistent.
